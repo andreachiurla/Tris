@@ -1,4 +1,9 @@
-var game = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+var game = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+];
+
 var player = true; /* true: O false: X*/
 
 function loadPlayer(){
@@ -24,35 +29,33 @@ function move(x_axis, y_axis){
         }
         player = !player;
         
-        if (checkWin()){
-            alert("QUALCUNO HA VINTO");
+        checked= checkWin();
+        if (checked === 1){
+            alert("Giocatore con X ha vinto");
+        }else if (checked === 2){
+            alert("Giocatore con O ha vinto");
         }
     }
 }
 
-function checkWin(){
-    let temp = 0;
-    for (let i = 0; i < game.length; i++) {
-        for (let j = 0; j < game[i].length - 1; j++) {
-            if (game[i][j] === game[i][j + 1] && game[i][j] !== 0){
-                temp++;
-                if (temp === 3){
-                    return true;
-                }
-            }
+function checkWin() {
+    // Verifica righe e colonne
+    for (let i = 0; i < 3; i++) {
+        if (game[i][0] === game[i][1] && game[i][1] === game[i][2] && game[i][0] !== 0) {
+            return game[i][0];
+        }
+        if (game[0][i] === game[1][i] && game[1][i] === game[2][i] && game[0][i] !== 0) {
+            return game[0][i];
         }
     }
-    temp = 0;
-    for (let i = 0; i < game.length; i++) {
-        for (let j = 0; j < game[j].length - 1; i++) {
-            if (game[i][j] === game[i + 1][j] && game[i][j] !== 0){
-                temp++;
-                if (temp === 3){
-                    return true;
-                }
-            }
-        }
+    // Verifica diagonali
+    if ((game[0][0] === game[1][1] && game[1][1] === game[2][2] && game[0][0] !== 0) ||
+        (game[0][2] === game[1][1] && game[1][1] === game[2][0] && game[0][2] !== 0)) {
+        return game[1][1];
     }
-    
-    return false;
+    return 0; // Nessun tris trovato
+}
+
+function reload(){
+    window.location.reload();
 }
