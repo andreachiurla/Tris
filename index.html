@@ -5,28 +5,41 @@
     <title>Tris - Home</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- ALERTS -->
 </head>
 <body onload="loadPlayer()">
 
 <div id="page-content">
-    <h1>Gioco del Tris</h1>
-    <div>
-        <p class="playing">Sta giocando: </p>
-        <p id="actual-player" class="playing"></p>
+    <div id="game">
+        <h1 id="page-title" class="roboto-bold">Gioco del Tris</h1>
+        <div id="info-container">
+            <p class="playing roboto-regular">Sta giocando: </p>
+            <p id="actual-player" class="playing roboto-bold"></p>
+        </div>
+        <div id="game-container">
+            <div id="r1c1" class="box r1 c1" onclick="move(1, 1)"></div>
+            <div id="r1c2" class="box r1 c2" onclick="move(1, 2)"></div>
+            <div id="r1c3" class="box r1" onclick="move(1, 3)"></div>
+            <div id="r2c1" class="box r2 c1" onclick="move(2, 1)"></div>
+            <div id="r2c2" class="box" onclick="move(2, 2)"></div>
+            <div id="r2c3" class="box r2 c3" onclick="move(2, 3)"></div>
+            <div id="r3c1" class="box c1" onclick="move(3, 1)"></div>
+            <div id="r3c2" class="box r3 c2" onclick="move(3, 2)"></div>
+            <div id="r3c3" class="box" onclick="move(3, 3)"></div>
+        </div>
+        <p id="restart-game" onclick="reload()">Riavvia gioco</p>
     </div>
-    <div id="game-container">
-        <div id="r1c1" class="box r1 c1" onclick="move(1, 1)"></div>
-        <div id="r1c2" class="box r1 c2" onclick="move(1, 2)"></div>
-        <div id="r1c3" class="box r1" onclick="move(1, 3)"></div>
-        <div id="r2c1" class="box r2 c1" onclick="move(2, 1)"></div>
-        <div id="r2c2" class="box" onclick="move(2, 2)"></div>
-        <div id="r2c3" class="box r2 c3" onclick="move(2, 3)"></div>
-        <div id="r3c1" class="box c1" onclick="move(3, 1)"></div>
-        <div id="r3c2" class="box r3 c2" onclick="move(3, 2)"></div>
-        <div id="r3c3" class="box" onclick="move(3, 3)"></div>
-    </div>
-    <p id="restart-game" onclick="reload()">Riavvia gioco</p>
 </div>
+
+<div id="signature">Made by Chiurla Andrea (2023/24 - 4AII, Istituto Italo Calvino)</div>
+
 
 </body>
 </html>
